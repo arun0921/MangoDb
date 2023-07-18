@@ -96,7 +96,7 @@ let movies = [
 
 app.get("/movies", function(req,res){
     let {language}=req.query
-    let movie=movies.filter((mv)=>mv.language==language)
+    let movie=movies.find((mv)=>mv.language==language)
     res.send(movie)
 })
 
@@ -108,7 +108,7 @@ app.get("/movies/:id", function(req,res){
 
 app.get("/movies/:name", function(req,res){
     let {name}=req.params
-    let movie=movies.find((mv)=>mv.name==name)
+    let movie=movies.filter((mv)=>mv.name==name)
     res.send(movie)
 })
 app.listen(port, () => console.log("started running:", port));
